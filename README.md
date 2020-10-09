@@ -26,5 +26,6 @@
   - Language and Platform
   - Capacity
   - Data Integrity
-  - Reliability 
+  - Reliability <br/> <br/>
 
+#### Milestone 2: GUI (in progress) 
