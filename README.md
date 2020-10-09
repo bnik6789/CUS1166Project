@@ -1,6 +1,6 @@
 # Vehicular Cloud Real Time System
 ### for CUS 1166-Software Engineering
-##### By: Aditya V., Andrew O., Benjamin N., Charnjot B., Michael M., Shiva G. (Group 3) <br/>
+##### By: Aditya V., Andrew O., Benjamin N., Charnjot B., Michael M., Shiva G. (Group 3) <br/> <br/>
 
 
 #### Milestone 1: Requirements Specification 
