@@ -13,12 +13,10 @@ import javax.swing.JPanel;
 public class Main {
 	
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("FrameDemo");
+		JFrame frame = new MainFrame();
+		frame.setTitle("Welcome to The Vehicular Cloud Console");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Vehicular Cloud");
-		frame.setSize(300, 400);
 		frame.setVisible(true);
-				
 	}
 	
 }
