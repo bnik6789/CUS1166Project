@@ -1,0 +1,8 @@
+**************************************
+Owner ID:  Test1
+Model Of Vehicle:  TestCar1
+Vehicle License Number:  T3sT0N3
+Approximate residency time:  19 minutes
+TimeStamp: 10-16-2020 09:29:27
+**************************************
+ 
