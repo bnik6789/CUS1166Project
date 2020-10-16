@@ -246,6 +246,4 @@ public class MainFrame extends JFrame{
 		add(panel);
 	}
 	
-
-
 }
