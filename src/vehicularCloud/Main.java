@@ -1,11 +1,11 @@
-package GUI;
+package vehicularCloud;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import GUI.MainFrame;
+import vehicularCloud.MainFrame;
 
 public class Main {
 	
