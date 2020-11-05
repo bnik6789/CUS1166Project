@@ -4,11 +4,13 @@ public class VehicleOwner {
 	private String firstName, lastName;
 	private String arrivalTime, estimatedDepartueTime;
 	private String vehicleModel;
+	private String Id;
 	
-	public VehicleOwner(String firstName, String lastName, String vehicleModel) {
+	public VehicleOwner(String firstName, String lastName, String vehicleModel, String Id) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.vehicleModel = vehicleModel;
+		this.Id = Id;
 	}
 	
 	public String getName() {
@@ -26,7 +28,12 @@ public class VehicleOwner {
 		return this.vehicleModel;
 	}
 	
-	public void addVehicle() {
-		
+	public String getId() 
+	{
+		return this.Id;
 	}
+	
+	/*public void addVehicle() {
+		
+	}*/
 }
