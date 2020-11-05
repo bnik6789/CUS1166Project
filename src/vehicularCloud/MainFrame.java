@@ -154,12 +154,16 @@ public class MainFrame extends JFrame{
 	class clientButtonListener implements ActionListener
 	{
 
+		JLabel clientFirstName = new JLabel("First Name: "); 
+		JLabel clientLastName = new JLabel("Last Name: ");    
 		JLabel clientID = new JLabel("Client ID:  ");
 		JLabel approximateJobDuration = new JLabel("Approximate Job Duration:  ");
 		JLabel jobDeadline = new JLabel("Job Deadline: ");
 		JLabel directions = new JLabel("Please Enter the Following Information:  ");
 		JLabel minutes = new JLabel("   Minutes");
 	
+		JTextField firstName = new JTextField(20);  
+		JTextField lastName = new JTextField(20);    
 		JTextField ID = new JTextField(20);
 		JTextField jobDuration = new JTextField(20);
 		JTextField Deadline = new JTextField(20);
@@ -181,15 +185,23 @@ public class MainFrame extends JFrame{
 			clientPanel.setLayout(null);
 			directions.setBounds(20, 20, 500, 25);
 			
+			clientFirstName.setBounds(20, 50, 80, 25 ); 
+			clientLastName.setBounds(20, 80, 80, 25); 
 			clientID.setBounds(20, 50, 80, 25);
 			approximateJobDuration.setBounds(20, 80, 400, 25);
 			jobDeadline.setBounds(20, 110, 80, 25);
 	
+			firstName.setBounds(89, 50, 200, 25);    
+			lastName.setBounds(89, 80, 200 , 25);        
 			ID.setBounds(73, 50, 165, 25);
 			jobDuration.setBounds(170, 80, 50, 25);
 			Deadline.setBounds(98, 110, 80, 25);
 			minutes.setBounds(224, 80, 100, 25);
 			
+			clientPanel.add(clientFirstName); 
+			clientPanel.add(clientLastName);
+			clientPanel.add(firstName);      
+			clientPanel.add(lastName);      
 			clientPanel.add(directions);
 			clientPanel.add(clientID);
 			clientPanel.add(approximateJobDuration);
@@ -216,14 +228,18 @@ public class MainFrame extends JFrame{
 			
 			public void actionPerformed(ActionEvent ae) 
 			{
+				String jDuration = jobDuration.getText();   
+				int duration = Integer.parseInt(jDuration); 
+				
 				if(ae.getActionCommand()== enterButton.getActionCommand()) 
 				{
 					try 
 					{
 						PrintStream output = new PrintStream(new FileOutputStream("Job Owner Information.txt", true));
 						output.println("*****************************************");
+						output.println("Name: " + firstName.getText() + " " + lastName.getText());
 						output.println(clientID.getText() + " " + ID.getText());
-						output.println(approximateJobDuration.getText() + " " + jobDuration.getText() + minutes.getText());
+						output.println(approximateJobDuration.getText() + " " + duration + " " + minutes.getText());
 						output.println(jobDeadline.getText() + " " + Deadline.getText());
 						output.println("TimeStamp: " + formatter.format(date));
 						output.println("*****************************************");
