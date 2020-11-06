@@ -1,18 +1,18 @@
 package vehicularCloud;
 
 public class Vehicle {
-	private String vehicleModel, vehicleLiscensePlate;
+	private String vehicleModel, vehicleLicensePlate;
 	
-	public Vehicle(String vehicleModel, String vehicleLiscensePlate) {
+	public Vehicle(String vehicleModel, String vehicleLicensePlate) {
 		this.vehicleModel = vehicleModel;
-		this.vehicleLiscensePlate = vehicleLiscensePlate;
+		this.vehicleLicensePlate = vehicleLicensePlate;
 	}
 	
 	public String getVehicleModel(){
 		return this.vehicleModel;
 	}
 	
-	public String getVehicleLiscensePlate() {
-		return this.vehicleLiscensePlate;
+	public String getVehicleLicensePlate() {
+		return this.vehicleLicensePlate;
 	}
 }
