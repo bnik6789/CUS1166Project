@@ -1,18 +1,21 @@
 package vehicularCloud;
 
 public class Job {
-	private String id, estimatedJobDuration;
+	private int id, JobDuration;
 	
-	public Job(String estimatedJobDuration) {
-		this.estimatedJobDuration = estimatedJobDuration;
+	public Job(int id,int JobDuration) 
+	{
+		this.JobDuration = JobDuration;
+		this.id = id;
 	}
 	
-	public String getEstimatedJobDuration() {
-		return this.estimatedJobDuration;
+	public int getJobId() 
+	{
+		return this.id;
 	}
 	
-	public void assignJobId() {
-		
+	public int getJobDuration() 
+	{
+		return this.JobDuration;
 	}
-	
 }
