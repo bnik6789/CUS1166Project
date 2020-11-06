@@ -14,6 +14,11 @@ public class VehicleOwnerList {
 	}
 	
 	public VehicleOwner getVehicleOwner(String id) {
+		for (VehicleOwner vo : vehicleOwnerList) {
+			if (id.equals(vo.getId())) {
+				return vo;
+			}
+		}
 		return null;
 	}
 	
