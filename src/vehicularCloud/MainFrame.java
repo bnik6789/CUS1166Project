@@ -56,7 +56,7 @@ public class MainFrame extends JFrame{
 		JLabel vehicleLicenseNumber = new JLabel("License Plate Number: ") ;
 		JLabel vehicleResidencyTime= new JLabel("Approximate Residency Time: ");
 		JLabel directions = new JLabel("Please enter the following information");
-		JLabel minutes = new JLabel(" minutes");
+		JLabel minutes = new JLabel(" Minutes");
 		JButton enterButton;
 		/* This is where a panel will open up asking the customer/owner the information that will need to be put into the code. */
 		
@@ -80,13 +80,13 @@ public class MainFrame extends JFrame{
 			vehicleModel.setBounds(20, 80, 200, 25);
 			vehicleLicenseNumber.setBounds(20, 110, 300, 25);
 			vehicleResidencyTime.setBounds(20, 140, 330, 25);
-			minutes.setBounds(235, 140, 100, 25);
+			minutes.setBounds(250, 140, 100, 25);
 			
 			
 			ID.setBounds(80, 50, 165, 25);
 			Model.setBounds(120, 80, 200, 25);
 			licenseNumber.setBounds(165, 110, 200, 25);
-			residencyTime.setBounds(186, 140, 50, 25);
+			residencyTime.setBounds(200, 140, 50, 25);
 			
 			
 			ownerPanel.add(directions);
@@ -160,13 +160,15 @@ public class MainFrame extends JFrame{
 		JLabel approximateJobDuration = new JLabel("Approximate Job Duration:  ");
 		JLabel jobDeadline = new JLabel("Job Deadline: ");
 		JLabel directions = new JLabel("Please Enter the Following Information:  ");
-		JLabel minutes = new JLabel("   Minutes");
+		JLabel jobDurationMinutes = new JLabel("   Minutes"); // This label could be renamed to 'minutes' so we don't need a duplicate label and to avoid confusion.
+		JLabel jobDeadlineMinutes = new JLabel("   Minutes");
+
 	
 		JTextField firstName = new JTextField(20);  
 		JTextField lastName = new JTextField(20);    
 		JTextField ID = new JTextField(20);
 		JTextField jobDuration = new JTextField(20);
-		JTextField Deadline = new JTextField(20);
+		JTextField deadline = new JTextField(20);
 		
 		JButton enterButton;
 		
@@ -187,16 +189,17 @@ public class MainFrame extends JFrame{
 			
 			clientFirstName.setBounds(20, 50, 80, 25 ); 
 			clientLastName.setBounds(20, 80, 80, 25); 
-			clientID.setBounds(20, 50, 80, 25);
-			approximateJobDuration.setBounds(20, 80, 400, 25);
-			jobDeadline.setBounds(20, 110, 80, 25);
+			clientID.setBounds(20, 110, 80, 25);
+			approximateJobDuration.setBounds(20, 140, 400, 25);
+			jobDeadline.setBounds(20, 170, 80, 25);
 	
 			firstName.setBounds(89, 50, 200, 25);    
 			lastName.setBounds(89, 80, 200 , 25);        
-			ID.setBounds(73, 50, 165, 25);
-			jobDuration.setBounds(170, 80, 50, 25);
-			Deadline.setBounds(98, 110, 80, 25);
-			minutes.setBounds(224, 80, 100, 25);
+			ID.setBounds(73, 110, 165, 25);
+			jobDuration.setBounds(180, 140, 50, 25);
+			deadline.setBounds(100, 170, 50, 25);
+			jobDurationMinutes.setBounds(225, 140, 100, 25);
+			jobDeadlineMinutes.setBounds(145, 170, 100, 25);
 			
 			clientPanel.add(clientFirstName); 
 			clientPanel.add(clientLastName);
@@ -208,15 +211,16 @@ public class MainFrame extends JFrame{
 			clientPanel.add(jobDeadline);	
 			clientPanel.add(ID);
 			clientPanel.add(jobDuration);
-			clientPanel.add(Deadline);
-			clientPanel.add(minutes);
+			clientPanel.add(deadline);
+			clientPanel.add(jobDurationMinutes);
+			clientPanel.add(jobDeadlineMinutes);
 			clientPanel.add(enterButton);
 		}		
 		
 		private void createClientEnterButton() 
 		{
 			enterButton = new JButton("Enter");
-			enterButton.setBounds(20, 190, 80, 25);
+			enterButton.setBounds(20, 200, 80, 25);
 			ActionListener clientEnterButtonListener = new clientEnterButtonListener();
 			enterButton.addActionListener(clientEnterButtonListener);
 		}
@@ -228,8 +232,10 @@ public class MainFrame extends JFrame{
 			
 			public void actionPerformed(ActionEvent ae) 
 			{
-				String jDuration = jobDuration.getText();   
-				int duration = Integer.parseInt(jDuration); 
+				String jDuration = jobDuration.getText();
+				String jDeadline = deadline.getText();   
+				int duration = Integer.parseInt(jDuration);
+				int deadline = Integer.parseInt(jDeadline); 
 				
 				if(ae.getActionCommand()== enterButton.getActionCommand()) 
 				{
@@ -239,8 +245,8 @@ public class MainFrame extends JFrame{
 						output.println("*****************************************");
 						output.println("Name: " + firstName.getText() + " " + lastName.getText());
 						output.println(clientID.getText() + " " + ID.getText());
-						output.println(approximateJobDuration.getText() + " " + duration + " " + minutes.getText());
-						output.println(jobDeadline.getText() + " " + Deadline.getText());
+						output.println(approximateJobDuration.getText() + " " + duration + " " + jobDurationMinutes.getText());
+						output.println(jobDeadline.getText() + " " + deadline + " " + jobDeadlineMinutes.getText());
 						output.println("TimeStamp: " + formatter.format(date));
 						output.println("*****************************************");
 						output.println(" ");
