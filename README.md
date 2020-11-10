@@ -28,4 +28,10 @@
   - Data Integrity
   - Reliability <br/> <br/>
 
-#### Milestone 2: GUI (in progress) 
+#### Milestone 2: GUI 
+* Created a GUI through a java window using JFrame, Labels and Button objects.
+* Main class controls input and output
+* Main Frame contains GUI methods and reads user-input of Vehicle Owner information/Client Job information to .txt files for storage and later use
+
+#### Milestone 3: Class design
+UML Design: https://lucid.app/invitations/accept/8485d680-959e-436e-90ee-128e276c41e6
