@@ -7,8 +7,6 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Controller {
-	//private VehicleOwnerList vehicleOwnerList;
-	//private ClientsList clientsList;
 	
 	public Controller() 
 	{
@@ -16,6 +14,7 @@ public class Controller {
     	    {  
        		VehicularCloud VC = new VehicularCloud();
        		VC.readJobs("Job Owner Information.txt"); 
+		System.out.println(completionTime("Job Owner Information.txt"));
      	    }
      	    catch(IOException e)
      	    {  
@@ -46,16 +45,4 @@ public class Controller {
 	      
 	   }
 	
-	/*
-	public void assignJob() {
-		
-	}
-	
-	public void checkpoint() {
-		
-	}
-	
-	public void assignJobToNewVehicle() {
-		
-	}*/
 }
