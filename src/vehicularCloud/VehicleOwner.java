@@ -33,7 +33,7 @@ public class VehicleOwner {
 		return this.Id;
 	}
 	
-	/*public void addVehicle() {
+	public void addVehicle() {
 		
-	}*/
+	}
 }

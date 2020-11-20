@@ -60,8 +60,6 @@ public class Controller {
 	      
 	   }
 	
-	////////////////////////////////////////////////////////////////////////////
-	
 	static ServerSocket serverSocket;
 	static Socket socket;
 	static DataInputStream inputStream;

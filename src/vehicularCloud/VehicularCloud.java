@@ -36,7 +36,6 @@ public class VehicularCloud {
 	   }
 	
 	
-	/*
 	public Job manageJob() {
 		return null;
 		
@@ -53,6 +52,7 @@ public class VehicularCloud {
 	
 	public Controller addController() {
 		return null;
+	}
 		
-	}*/
 }
+
