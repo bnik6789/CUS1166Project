@@ -12,6 +12,9 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -20,6 +23,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
+
+import java.sql.*;
+
 
 public class Controller {
 	
@@ -60,6 +66,7 @@ public class Controller {
 	      
 	   }
 	
+	
 	static ServerSocket serverSocket;
 	static Socket socket;
 	static DataInputStream inputStream;
@@ -79,12 +86,13 @@ public class Controller {
 			
 			System.out.println("******** Server Side ********");
 			System.out.println("Waiting for client to connect....");
-			serverSocket = new ServerSocket(3333);
+			serverSocket = new ServerSocket(3322);
 			socket = serverSocket.accept();
 			System.out.println("Request accepted client is connected....");
 			
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
+			
 			
 			class acceptRejectWindow extends JFrame
 			{
@@ -123,6 +131,11 @@ public class Controller {
 								
 							try 
 							{
+								////
+								clientTable();
+								vehicleOwnerTable();
+								////
+								
 								PrintStream output = new PrintStream(new FileOutputStream("Client Data.txt", true));
 								output.println("**************************************");
 								output.println("CLIENT DATA: ");
@@ -136,8 +149,74 @@ public class Controller {
 								
 							}
 						}
-					}	
+					}
+					
+					
+					
+					/////////////////////////////////////////////////////////
+					/////////////////////////////////////////////////////////
+					
+					public  void clientTable() throws Exception
+					{
+						try 
+						{
+							 Connection connection = null;
+							//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
+							//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
+							String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
+							String username = "root";
+							String password = "yourpassword"; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
+							
+							connection = DriverManager.getConnection(url, username, password);
+							
+							String sql = "INSERT INTO client" + "(name , Id, deadline)" + "VALUES (getClientName(), getClientID(), getJobDeadline())";
+							
+							Statement statement = connection.createStatement();
+							 
+							statement.executeUpdate(sql);
+
+							connection.close();
+						}
+						catch(Exception e) 
+						{
+							System.out.println(e);
+						}
+						
+						
+					}
+					
+					public  void vehicleOwnerTable() throws Exception{
+						try 
+						{
+							 Connection connection = null;
+							//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
+							//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
+							String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
+							String username = "root";
+							String password = "yourpassword"; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
+							
+							connection = DriverManager.getConnection(url, username, password);
+							
+							String sql = "INSERT INTO vehicleowner" + "(vehicleOwnerId , model, licenseNumber, residencyTime)" + "VALUES (getVehicleOwnerId(), getVehicleModel(), getLicenseNumber(), getResidencyTime())";
+							
+							Statement statement = connection.createStatement();
+							 
+							statement.executeUpdate(sql);
+
+							connection.close();
+						}
+						catch(Exception e) 
+						{
+							System.out.println(e);
+						}
+					}
+					
+					////////////////////////////////////////////////////////////////
+					////////////////////////////////////////////////////////////////
+					
+					
 				}
+				
 				
 				class rejectButtonListener implements ActionListener
 				{
@@ -174,7 +253,7 @@ public class Controller {
 				}
 					
 			}
-			
+			//////
 			
 			while(true)
 			{
@@ -186,6 +265,11 @@ public class Controller {
 				dataIn = inputStream.readUTF();
 				System.out.println("Data received from client: " + "\"" + dataIn + "\"");
 				
+				
+				JFrame mFrame = new MainFrame();
+				mFrame.setTitle("Welcome to The Vehicular Cloud Console");
+				mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				mFrame.setVisible(true);
 				
 				JFrame frame = new acceptRejectWindow();
 				frame.setTitle("SERVER");
