@@ -22,12 +22,13 @@ public class NetworkClient{
 				 System.out.println("******** Client Side ********");
 				 System.out.println("Client Sucessfully Connected!... ");
 				
-				Socket socket = new Socket("localhost", 3333);
+				Socket socket = new Socket("localhost", 3322);
 				
 				inputStream = new DataInputStream(socket.getInputStream());
 				outputStream = new DataOutputStream(socket.getOutputStream());
 				
-				System.out.println("Input the data that you want to send the server: ");
+				System.out.println("Enter Yes if you have data you want to send to the server.");
+				System.out.println("Otherwise type exit.");
 				input = new Scanner(System.in);
 				dataOut = input.nextLine();
 				outputStream.writeUTF(dataOut);
@@ -41,8 +42,9 @@ public class NetworkClient{
 					}
 					dataIn = inputStream.readUTF();
 					System.out.println("message received from server: " + "\"" + dataIn + "\"");
-					System.out.println("Input data that you want to send the server.");
-					System.out.println("If you dont have any more data to send the server, type exit");
+					
+					System.out.println("Enter Yes if you have data you want to send to the server.");
+					System.out.println("Otherwise type exit.");
 					input = new Scanner(System.in);
 					dataOut = input.nextLine();
 					outputStream.writeUTF(dataOut);
