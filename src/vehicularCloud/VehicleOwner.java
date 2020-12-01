@@ -1,3 +1,5 @@
+package vehicularCloud;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -22,10 +24,10 @@ public class VehicleOwner extends JFrame{
 	final int FrameWidth = 600;
 	final int FrameHeight = 300;
 	
-	JTextField ID = new JTextField(20);
-	JTextField Model = new JTextField(20);
-	JTextField licenseNumber = new JTextField(20);
-	JTextField residencyTime = new JTextField(20);
+	static JTextField ID = new JTextField(20);
+	static JTextField Model = new JTextField(20);
+	static JTextField licenseNumber = new JTextField(20);
+	static JTextField residencyTime = new JTextField(20);
 	JLabel ownerID = new JLabel("Owner ID: ");
 	JLabel vehicleModel = new JLabel("Vehicle Model: ");
 	JLabel vehicleLicenseNumber = new JLabel("License Plate Number: ") ;
@@ -108,7 +110,6 @@ public class VehicleOwner extends JFrame{
 					output.println("*****************************************");
 					output.println(" ");
 					output.close();
-					//JOptionPane.showMessageDialog(null, "Information Successfully Stored!");
 					JOptionPane.showMessageDialog(null, "Information Sent to the Server!");
 					
 				} catch(Exception e){JOptionPane.showMessageDialog(null, e);}				
@@ -116,60 +117,24 @@ public class VehicleOwner extends JFrame{
 		}
 		
 	}
-	public String getVehicleOwnerId() 
+	public static String getVehicleOwnerId() 
 	{
 		return ID.getText();
 	}
 	
-	public String getVehicleModel() 
+	public static String getVehicleModel() 
 	{
 		return Model.getText();
 	}
 	
-	public String getLicenseNumber() 
+	public static String getLicenseNumber() 
 	{
 		return licenseNumber.getText();
 	}
 	
-	public String getResidencyTime() 
+	public static String getResidencyTime() 
 	{
 		return residencyTime.getText();
 	}
-	
-  ////////////////////////////////////
-	/*
-	 public class vehicleOwnerTable 
-	{
-		public vehicleOwnerTable() throws Exception
-		{
-			try 
-			{
-				Connection connection = null;
-				//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
-				//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
-				String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
-				String username = "root";
-				String password = "yourpassword";  //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
-							
-				connection = DriverManager.getConnection(url, username, password);
-							
-				String sql = "INSERT INTO vehicleowner" + "(vehicleOwnerId , model, licenseNumber, residencyTime)" + "VALUES (getVehicleOwnerId(), getVehicleModel(), getLicenseNumber(), getResidencyTime())";
-							
-				Statement statement = connection.createStatement();
-							 
-				statement.executeUpdate(sql);
-	
-				connection.close();
-			}
-			catch(Exception e) 
-			{
-				System.out.println(e);
-			}
-		}
-		
-	}
-	 */
-   /////////////////////////////////
-   
-   
+
 }

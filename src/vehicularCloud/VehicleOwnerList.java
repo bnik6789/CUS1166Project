@@ -13,13 +13,13 @@ public class VehicleOwnerList {
 		this.OwnerListVehicle.add(vehicleOwner);
 	}
 	
-	public VehicleOwner getVehicleOwner(String id) {
+	/* public VehicleOwner getVehicleOwner(String id) {
 		for (VehicleOwner vo : OwnerListVehicle) {
 			if (id.equals(vo.getId())) {
 				return vo;
 			}
 		}
 		return null;
-	}
+	} */
 	
 }

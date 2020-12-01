@@ -6,3 +6,19 @@ Approximate residency time:  19 minutes
 TimeStamp: 10-16-2020 09:29:27
 **************************************
  
+*****************************************
+Owner ID:  1234
+Vehicle Model:  Ford
+License Plate Number:  ABC
+Approximate Residency Time:  80 Minutes
+TimeStamp: 11-30-2020 21:41:51
+*****************************************
+ 
+*****************************************
+Owner ID:  1
+Vehicle Model:  Ford
+License Plate Number:  ABC123
+Approximate Residency Time:  80 Minutes
+TimeStamp: 11-30-2020 22:42:59
+*****************************************
+ 
