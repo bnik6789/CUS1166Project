@@ -35,3 +35,24 @@
 
 #### Milestone 3: Class design
 UML Design: https://lucid.app/publicSegments/view/d98c9ae8-ba25-4c3c-83da-9cc8a983cc6e/image.pdf
+
+#### Milestone 4: Class Implementation
+* Added Classes in UML from Milestone 3:
+  - Client
+  - ClientList
+  - Vehicle
+  - VehicleOwner
+  - VehicleOwnerList
+  - Controller
+  - VehicularCloud
+  - Job
+* Classes implemented to complete the following tasks:
+  - Client can submit a job to VC and the information will be stored in a file. 
+  - Vehicle Owner can register in the system and the information will be stored in a file.
+  - VC Controller will be able to compute the completion time for each job.
+
+#### Milestone 5: Client/Server Model
+* Created server within Controller class
+* Added a Task Owner (Client) to authorize Jobs stored.
+* Added Vehicler Owner (Client) to authorized Vehicles stored. 
+* Messages can be sent between Clients and Servers to authorize or reject information
