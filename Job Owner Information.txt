@@ -1,0 +1,32 @@
+*****************************************
+Name: A O
+Client ID:   1234
+Approximate Job Duration:   80    Minutes
+Job Deadline:  90    Minutes
+TimeStamp: 11-30-2020 21:42:33
+*****************************************
+ 
+*****************************************
+Name: A O
+Client ID:   1
+Approximate Job Duration:   80    Minutes
+Job Deadline:  90    Minutes
+TimeStamp: 11-30-2020 22:43:37
+*****************************************
+ 
+*****************************************
+Name: G E
+Client ID:   1
+Approximate Job Duration:   80    Minutes
+Job Deadline:  90    Minutes
+TimeStamp: 11-30-2020 22:43:37
+*****************************************
+ 
+*****************************************
+Name: A B
+Client ID:   1
+Approximate Job Duration:   70    Minutes
+Job Deadline:  90    Minutes
+TimeStamp: 11-30-2020 22:50:44
+*****************************************
+ 

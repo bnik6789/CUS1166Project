@@ -1,3 +1,5 @@
+package vehicularCloud;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -30,11 +32,11 @@ public class OwnerFrame extends JFrame{
 	JLabel jobDeadlineMinutes = new JLabel("   Minutes");
 
 
-	JTextField firstName = new JTextField(20);  
-	JTextField lastName = new JTextField(20);    
-	JTextField ID = new JTextField(20);
+	static JTextField firstName = new JTextField(20);  
+	static JTextField lastName = new JTextField(20);    
+	static JTextField ID = new JTextField(20);
 	JTextField jobDuration = new JTextField(20);
-	JTextField deadline = new JTextField(20);
+	static JTextField deadline = new JTextField(20);
 	
 	JButton enterButton;
 	
@@ -127,54 +129,19 @@ public class OwnerFrame extends JFrame{
 		}
 		
 	}
-	public String getClientName() 
+	public static String getClientName() 
 	{
 		return firstName.getText() + " " + lastName.getText();
 	}
 	
-	public String getClientID() 
+	public static String getClientID() 
 	{
 		return ID.getText();
 	}
-	
-	public String getJobDeadline() 
+
+	public static String getJobDeadline() 
 	{
 		return deadline.getText();
 	}
 	
-	
-  ////////////////////
-	/*
-	public class clientTable 
-	{
-		public clientTable() throws Exception
-		{
-			try 
-			{
-				 Connection connection = null;
-				//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
-				//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
-				String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
-				String username = "root";
-				String password = "yourpassword";  //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
-				
-				connection = DriverManager.getConnection(url, username, password);
-				
-				String sql = "INSERT INTO client" + "(name , Id, deadline)" + "VALUES (getClientName(), getClientID(), getJobDeadline())";
-				
-				Statement statement = connection.createStatement();
-				 
-				statement.executeUpdate(sql);
-		
-				connection.close();
-			}
-			catch(Exception e) 
-			{
-				System.out.println(e);
-			}
-		}
-		
-	}
-	*/
-	///////////////////
 }

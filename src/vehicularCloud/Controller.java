@@ -163,18 +163,18 @@ public class Controller {
 							 Connection connection = null;
 							//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
 							//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
-							String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
+							String url = "jdbc:mysql://localhost:3306/vc3?useTimezone=true&serverTimezone=UTC";
 							String username = "root";
-							String password = "yourpassword"; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
+							String password = ""; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
 							
 							connection = DriverManager.getConnection(url, username, password);
-							
-							String sql = "INSERT INTO client" + "(name , Id, deadline)" + "VALUES (getClientName(), getClientID(), getJobDeadline())";
-							
-							Statement statement = connection.createStatement();
-							 
-							statement.executeUpdate(sql);
 
+							PreparedStatement pst = connection.prepareStatement("INSERT INTO client VALUES(?, ?, ?)");
+							pst.setString(1, OwnerFrame.getClientName());
+							pst.setString(2, OwnerFrame.getClientID());
+							pst.setString(3, OwnerFrame.getJobDeadline());
+
+							pst.executeUpdate();
 							connection.close();
 						}
 						catch(Exception e) 
@@ -191,17 +191,19 @@ public class Controller {
 							 Connection connection = null;
 							//this part is the address and name of your database server: jdbc:mysql://localhost:3306/VC3
 							//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
-							String url = "jdbc:mysql://localhost:3306/VC?useTimezone=true&serverTimezone=UTC";
+							String url = "jdbc:mysql://localhost:3306/vc3?useTimezone=true&serverTimezone=UTC";
 							String username = "root";
-							String password = "yourpassword"; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
+							String password = ""; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
 							
 							connection = DriverManager.getConnection(url, username, password);
-							
-							String sql = "INSERT INTO vehicleowner" + "(vehicleOwnerId , model, licenseNumber, residencyTime)" + "VALUES (getVehicleOwnerId(), getVehicleModel(), getLicenseNumber(), getResidencyTime())";
-							
-							Statement statement = connection.createStatement();
-							 
-							statement.executeUpdate(sql);
+
+							PreparedStatement pst = connection.prepareStatement("INSERT INTO vehicleowner VALUES(?, ?, ?, ?)"); //Prepared statements are better suited for calling getters.
+							pst.setString(1, VehicleOwner.getVehicleOwnerId());
+							pst.setString(2, VehicleOwner.getVehicleModel());
+							pst.setString(3, VehicleOwner.getLicenseNumber());
+							pst.setString(4, VehicleOwner.getResidencyTime());
+
+							pst.executeUpdate();
 
 							connection.close();
 						}
