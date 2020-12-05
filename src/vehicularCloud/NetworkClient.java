@@ -18,6 +18,7 @@ public class NetworkClient{
 			Scanner input;
 			
 			try 
+			
 			{
 				 System.out.println("******** Client Side ********");
 				 System.out.println("Client Sucessfully Connected!... ");
@@ -37,6 +38,7 @@ public class NetworkClient{
 				{
 					if(dataIn.equals("exit")) 
 					{
+						socket.close();
 						System.out.println("GOODBYE");
 						System.exit(1);
 					}

@@ -2,15 +2,10 @@ package vehicularCloud;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.JButton;  
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,9 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import java.sql.*;
-
 public class VehicleOwner extends JFrame{
+	/**
+	 *
+	 */
+	//private static final long serialVersionUID = 1L;
 	final int FrameWidth = 600;
 	final int FrameHeight = 300;
 	
@@ -111,6 +108,10 @@ public class VehicleOwner extends JFrame{
 					output.println(" ");
 					output.close();
 					JOptionPane.showMessageDialog(null, "Information Sent to the Server!");
+					ID.setText("");
+					Model.setText("");
+					licenseNumber.setText("");
+					residencyTime.setText("");
 					
 				} catch(Exception e){JOptionPane.showMessageDialog(null, e);}				
 			}

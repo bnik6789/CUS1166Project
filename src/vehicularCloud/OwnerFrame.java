@@ -2,12 +2,10 @@ package vehicularCloud;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.JButton;  
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,10 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import java.sql.*;
-
 public class OwnerFrame extends JFrame{
 
+	/**
+	 *
+	 */
+	//private static final long serialVersionUID = 1L;
 	final int FrameWidth = 600;
 	final int FrameHeight = 300;
 	
@@ -36,13 +36,13 @@ public class OwnerFrame extends JFrame{
 	static JTextField lastName = new JTextField(20);    
 	static JTextField ID = new JTextField(20);
 	JTextField jobDuration = new JTextField(20);
-	static JTextField deadline = new JTextField(20);
+	static JTextField deadLine = new JTextField(20);
 	
 	JButton enterButton;
 	
 	
 	public OwnerFrame() 
-  {
+  	{
 	
 		JPanel clientPanel = new JPanel();
 		JFrame clientFrame = new JFrame();
@@ -67,81 +67,81 @@ public class OwnerFrame extends JFrame{
 		lastName.setBounds(89, 80, 200 , 25);        
 		ID.setBounds(73, 110, 165, 25);
 		jobDuration.setBounds(180, 140, 50, 25);
-		deadline.setBounds(100, 170, 50, 25);
+		deadLine.setBounds(100, 170, 50, 25);
 		jobDurationMinutes.setBounds(225, 140, 100, 25);
 		jobDeadlineMinutes.setBounds(145, 170, 100, 25);
-		
-		clientPanel.add(clientFirstName); 
+
+		clientPanel.add(clientFirstName);
 		clientPanel.add(clientLastName);
-		clientPanel.add(firstName);      
-		clientPanel.add(lastName);      
+		clientPanel.add(firstName);
+		clientPanel.add(lastName);
 		clientPanel.add(directions);
 		clientPanel.add(clientID);
 		clientPanel.add(approximateJobDuration);
-		clientPanel.add(jobDeadline);	
+		clientPanel.add(jobDeadline);
 		clientPanel.add(ID);
 		clientPanel.add(jobDuration);
-		clientPanel.add(deadline);
+		clientPanel.add(deadLine);
 		clientPanel.add(jobDurationMinutes);
 		clientPanel.add(jobDeadlineMinutes);
 		clientPanel.add(enterButton);
-    
+
 	}
-		
-	private void createClientEnterButton() 
-	{
+
+	private void createClientEnterButton() {
 		enterButton = new JButton("Enter");
 		enterButton.setBounds(20, 200, 80, 25);
 		ActionListener clientEnterButtonListener = new clientEnterButtonListener();
 		enterButton.addActionListener(clientEnterButtonListener);
 	}
-	
-	class clientEnterButtonListener implements ActionListener
-	{
+
+	class clientEnterButtonListener implements ActionListener {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
-		
-		public void actionPerformed(ActionEvent ae) 
-		{
+
+		public void actionPerformed(ActionEvent ae) {
 			String jDuration = jobDuration.getText();
-			String jDeadline = deadline.getText();   
+			String jDeadline = deadLine.getText();
 			int duration = Integer.parseInt(jDuration);
-			int deadline = Integer.parseInt(jDeadline); 
-			
-			if(ae.getActionCommand()== enterButton.getActionCommand()) 
-			{
-				try 
-				{
+			int deadline = Integer.parseInt(jDeadline);
+
+			if (ae.getActionCommand() == enterButton.getActionCommand()) {
+				try {
 					PrintStream output = new PrintStream(new FileOutputStream("Job Owner Information.txt", true));
 					output.println("*****************************************");
 					output.println("Name: " + firstName.getText() + " " + lastName.getText());
 					output.println(clientID.getText() + " " + ID.getText());
-					output.println(approximateJobDuration.getText() + " " + duration + " " + jobDurationMinutes.getText());
+					output.println(
+							approximateJobDuration.getText() + " " + duration + " " + jobDurationMinutes.getText());
 					output.println(jobDeadline.getText() + " " + deadline + " " + jobDeadlineMinutes.getText());
 					output.println("TimeStamp: " + formatter.format(date));
 					output.println("*****************************************");
 					output.println(" ");
 					output.close();
 					JOptionPane.showMessageDialog(null, "Information Sent to the Server!");
-				
-				} catch(Exception e){JOptionPane.showMessageDialog(null, e);}
+					firstName.setText("");
+					lastName.setText("");
+					ID.setText("");
+					jobDuration.setText("");
+					deadLine.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e);
+				}
 			}
 		}
-		
+
 	}
-	public static String getClientName() 
-	{
+
+	public static String getClientName() {
 		return firstName.getText() + " " + lastName.getText();
 	}
-	
-	public static String getClientID() 
-	{
+
+	public static String getClientID() {
 		return ID.getText();
 	}
 
-	public static String getJobDeadline() 
-	{
-		return deadline.getText();
+	public static String getJobDeadline() {
+		return deadLine.getText();
 	}
 	
 }
