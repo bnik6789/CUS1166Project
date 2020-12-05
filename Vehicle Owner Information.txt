@@ -22,3 +22,27 @@ Approximate Residency Time:  80 Minutes
 TimeStamp: 11-30-2020 22:42:59
 *****************************************
  
+*****************************************
+Owner ID:  123
+Vehicle Model:  A
+License Plate Number:  2131
+Approximate Residency Time:  60 Minutes
+TimeStamp: 12-04-2020 18:34:08
+*****************************************
+ 
+*****************************************
+Owner ID:  
+Vehicle Model:  
+License Plate Number:  
+Approximate Residency Time:   Minutes
+TimeStamp: 12-04-2020 18:34:08
+*****************************************
+ 
+*****************************************
+Owner ID:  1234
+Vehicle Model:  Chevy
+License Plate Number:  ABC123
+Approximate Residency Time:  60 Minutes
+TimeStamp: 12-04-2020 18:55:59
+*****************************************
+ 

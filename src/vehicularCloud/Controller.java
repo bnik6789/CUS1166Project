@@ -7,14 +7,11 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -22,7 +19,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 
 import java.sql.*;
 
@@ -75,15 +71,9 @@ public class Controller {
 	public static void main(String[] args) 
 	{
 		String dataIn = "";
-		String dataOut = "";
-		Scanner input;
-		
 		
 		try 
-		{
-		
-			String in = "";
-			
+		{			
 			System.out.println("******** Server Side ********");
 			System.out.println("Waiting for client to connect....");
 			serverSocket = new ServerSocket(3322);
@@ -143,6 +133,7 @@ public class Controller {
 								output.println("**************************************");
 								
 								outputStream.writeUTF("DATA ACCEPTED");
+								output.close();
 							}
 							catch(Exception ex){JOptionPane.showMessageDialog(null, ex);} 
 							{
@@ -193,7 +184,7 @@ public class Controller {
 							//this part of the string is for time adjustment: ?useTimezone=true&serverTimezone=UTC
 							String url = "jdbc:mysql://localhost:3306/vc3?useTimezone=true&serverTimezone=UTC";
 							String username = "root";
-							String password = ""; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
+							String password = "SecaAces1234!"; //Replace the value for static String password = "yourpassword" with the password that you selected for MySQL server.
 							
 							connection = DriverManager.getConnection(url, username, password);
 
